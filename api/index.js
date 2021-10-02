@@ -1,3 +1,4 @@
+import { URI } from "uriMongodb.js";
 // Import express
 let express = require("express");
 // Import Body parser
@@ -17,10 +18,8 @@ app.use(
 );
 app.use(bodyParser.json());
 
-const uri =
-  "mongodb+srv://dbUser:Nicolas@schadocnico.vdb9v.mongodb.net/sample_gsw?retryWrites=true&w=majority";
 // Connect to Mongoose and set connection variable
-mongoose.connect(uri, { useNewUrlParser: true });
+mongoose.connect(URI, { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // Added check for DB connection
