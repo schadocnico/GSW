@@ -1,4 +1,3 @@
-import { URI } from "uriMongodb.js";
 // Import express
 let express = require("express");
 // Import Body parser
@@ -7,6 +6,9 @@ let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
 // Initialise the app
 let app = express();
+
+const URI =
+  "mongodb+srv://dbUser:Nicolas@schadocnico.vdb9v.mongodb.net/sample_gsw?retryWrites=true&w=majority";
 
 // Import routes
 let apiRoutes = require("./api-routes");
