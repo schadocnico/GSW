@@ -12,6 +12,7 @@ router.get("/", function (req, res) {
 
 // Import tournament controller
 var tournamentController = require("./tournamentController");
+var roundController = require("./roundController");
 
 // Tournament routes
 router
@@ -19,7 +20,10 @@ router
   .get(tournamentController.index)
   .post(tournamentController.new);
 
-router.route("/tournaments/:tournament_id").get(tournamentController.view);
+router
+  .route("/tournaments/:tournament_id")
+  .get(tournamentController.view)
+  .put(roundController.update);
 
 // Export API routes
 module.exports = router;

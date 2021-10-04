@@ -1,0 +1,42 @@
+[
+    {"name":"Tournoi GTW Summer", "rounds":
+        [
+            {"name": "Phase de groupe", "subgroups" : 
+                [
+                    {"name":"Groupe 1", "note":"Votez pour la waifu que vous voulez éliminer", "votes" : 
+                        [
+                            {"name":"Emilia", "link":"www.googledrive.com/emilia", "poll":
+                                [
+                                    {"_uid":"1"},
+                                    {"_uid":"4"}
+                                ]
+                            },
+                            {"name":"Kai", "link":"www.googledrive.com/Kai", "poll":
+                                [
+                                    {"_uid":"3"},
+                                    {"_uid":"2"}
+                                ]
+                            }
+                        ]
+                    },
+                    {"name":"Groupe 2", "note":"Votez pour la waifu que vous voulez éliminer", "votes" : 
+                        [
+                            {"name":"Rache", "link":"www.googledrive.com/rache", "poll":
+                                [
+                                    {"_uid":"3"},
+                                    {"_uid":"4"}
+                                ]
+                            },
+                            {"name":"nina", "link":"www.googledrive.com/Nina", "poll":
+                                [
+                                    {"_uid":"2"},
+                                    {"_uid":"1"}
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

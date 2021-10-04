@@ -1,22 +1,19 @@
-// tournamentModel.js
+// roundModel.js
 var mongoose = require("mongoose");
 
 // Setup schema
-var tournamentSchema = mongoose.Schema({
+var roundSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  rounds: {
+  subgroups: {
     type: Object,
   },
 });
 
 // Export Contact model
-var Tournament = (module.exports = mongoose.model(
-  "tournament",
-  tournamentSchema
-));
+var Round = (module.exports = mongoose.model("round", roundSchema));
 module.exports.get = function (callback, limit) {
-  Tournament.find(callback).limit(limit);
+  Round.find(callback).limit(limit);
 };
