@@ -23,7 +23,6 @@ exports.new = function (req, res) {
   var tournament = new Tournament();
   tournament.name = req.body.name ? req.body.name : tournament.name;
   // save the tournament and check for errors
-  tournament.rounds = [];
   tournament.save(function (err) {
     // if (err)
     //     res.json(err);

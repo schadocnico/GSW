@@ -1,10 +1,10 @@
 // roundController.js
 // Import round model
+Subgroup = require("./subgroupModel");
 Round = require("./roundModel");
-Tournament = require("./tournamentModel");
 // Handle index actions
 exports.index = function (req, res) {
-  Round.get(function (err, rounds) {
+  Round.get(function (err, round) {
     if (err) {
       res.json({
         status: "error",
@@ -14,23 +14,24 @@ exports.index = function (req, res) {
     res.json({
       status: "success",
       message: "Round retrieved successfully",
-      data: rounds,
+      data: round,
     });
   });
 };
 
 // Handle create round actions
 exports.new = function (req, res) {
-  Tournament.findById(req.params.tournament_id, function (err, tournament) {
-    var round = new Round();
-    round.name = req.body.name ? req.body.name : round.name;
-    round.tournamentId = tournament._id;
+  Round.findById(req.params.round_id, function (err, round) {
+    var subgroup = new Subgroup();
+    subgroup.name = req.body.name ? req.body.name : subgroup.name;
+    subgroup.note = req.body.note ? req.body.note : subgroup.note;
+    subgroup.roundId = round._id;
 
-    round.save(function (err) {
+    subgroup.save(function (err) {
       if (err) res.json(err);
       res.json({
-        message: "New round created!",
-        data: round,
+        message: "New subgroup created!",
+        data: subgroup,
       });
     });
   });
@@ -38,13 +39,13 @@ exports.new = function (req, res) {
 
 // Handle view tournament info
 exports.view = function (req, res) {
-  Tournament.aggregate([
+  Round.aggregate([
     {
       $lookup: {
-        from: "rounds",
+        from: "subgroups",
         localField: "_id",
-        foreignField: "tournamentId",
-        as: "rounds",
+        foreignField: "roundId",
+        as: "subgroups",
       },
     },
   ])

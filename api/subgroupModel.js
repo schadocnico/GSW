@@ -2,20 +2,23 @@
 var mongoose = require("mongoose");
 
 // Setup schema
-var roundSchema = mongoose.Schema({
+var subgroupSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  tournamentId: {
+  note: {
+    type: String,
+  },
+  roundId: {
     type: mongoose.Schema.ObjectId,
-    ref: "Tournament",
+    ref: "Round",
     required: true,
   },
 });
 
 // Export Contact model
-var Round = (module.exports = mongoose.model("round", roundSchema));
+var Subgroup = (module.exports = mongoose.model("subgroup", subgroupSchema));
 module.exports.get = function (callback, limit) {
-  Round.find(callback).limit(limit);
+  Subgroup.find(callback).limit(limit);
 };

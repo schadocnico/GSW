@@ -7,9 +7,6 @@ var tournamentSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  rounds: {
-    type: Object,
-  },
 });
 
 // Export Contact model
